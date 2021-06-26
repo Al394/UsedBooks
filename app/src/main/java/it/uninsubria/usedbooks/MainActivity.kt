@@ -7,7 +7,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.StringBuilder
 
 
@@ -33,17 +32,16 @@ class MainActivity : AppCompatActivity() {
 //        val b = Book("Prova", 1, 1)
 //        val f = Book("Prova", 2, 1)
 //        val z = Book("Pierino frazz",12,31)
-        val ff: String = readBooks()
+//        val ff: String = readBooks()
 
-        button.setOnClickListener {
-            Toast.makeText(applicationContext, ff,Toast.LENGTH_SHORT).show()
-        }
+//        button.setOnClickListener {
+//            Toast.makeText(applicationContext, ff,Toast.LENGTH_SHORT).show()
+//        }
 
 
         //writeNewBook(b)
 //        writeNewBook(z)
 //        writeNewBook(f)
-
 
 
     }
