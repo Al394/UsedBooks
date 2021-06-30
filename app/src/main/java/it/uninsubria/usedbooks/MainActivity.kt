@@ -1,55 +1,84 @@
 package it.uninsubria.usedbooks
 
-import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
-import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
-import java.lang.StringBuilder
-import java.util.*
+import kotlin.concurrent.thread
 
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var mDB: DatabaseReference
+    private val TAG: String = "MainActivity"
+    private val mBook: ArrayList<Book> = ArrayList()
+    private val mAdapter: BookAdapter = BookAdapter(this, mBook)
+    private var mDB: DatabaseReference = FirebaseDatabase.getInstance().getReference("Books")
+    private lateinit var mBookChildListener: ChildEventListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
 
-        bottone.setOnClickListener {
-            readBooks()
-            Log.i("Prova", "Maronna")
-
-
+        thread {
+            list_item.adapter = mAdapter
+            Log.i(TAG, "Working with ${Thread.currentThread().name}")
         }
 
-        mDB = FirebaseDatabase.getInstance().reference
 
-
-//
-//        val narm = mDB.database.reference
-//
-//        val prza = narm.child("Book").orderByChild("titolo")
-//
-//
-//        testo.text = prza.toString()
-//
-        val b = Book("Alala", 1, 1)
-//        val f = Book("Prova", 2, 1)
-//        val z = Book("Pierino frazz",12,31)
-//        val ff: String = readBooks()
-
-
-        writeNewBook(b)
-//        writeNewBook(z)
-//        writeNewBook(f)
-
+        thread {
+            writeNewBook(Book("Salmo e un sacco di altre persone che vagavano per i boschi",
+                111,
+                -100,
+                12))
+            Log.i(TAG, "Working with ${Thread.currentThread().name}")
+        }
 
     }
+
+    override fun onStart() {
+        super.onStart()
+
+        mBookChildListener = getBookEventListener()
+        mDB.addChildEventListener(mBookChildListener)
+
+    }
+
+    private fun getBookEventListener(): ChildEventListener {
+        return object : ChildEventListener {
+            override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
+                Log.d(TAG, "onChildAdded: " + snapshot.key!!)
+                val newBook = snapshot.getValue(Book::class.java)
+                mBook.add(newBook!!)
+                mAdapter.notifyDataSetChanged()
+            }
+
+            override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
+                Log.d(TAG, "onChildChanged:  " + snapshot.key)
+            }
+
+            override fun onChildRemoved(snapshot: DataSnapshot) {
+                Log.d(TAG, "onChildRemoved:  " + snapshot.key)
+            }
+
+            override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
+                Log.d(TAG, "onChildMoved: " + snapshot.key)
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        mDB.removeEventListener(mBookChildListener)
+    }
 }
+
+//private fun Query.addChildEventListener(function: () -> Unit) {
+//
+//}
+

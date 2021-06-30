@@ -1,38 +1,36 @@
 package it.uninsubria.usedbooks
 
-import android.content.ContentValues.TAG
 import android.util.Log
 import com.google.firebase.database.*
+import kotlin.concurrent.thread
 
-
-private lateinit var mDB: DatabaseReference
+private var TAG = "Book"
+private var mDB: DatabaseReference = FirebaseDatabase.getInstance().getReference("Books")
 
 data class Book(
     val titolo: String? = null,
     val latitudine: Int? = null,
     val longitudine: Int? = null,
-    val prezzo: Int? = null
+    val prezzo: Int? = null,
 ) {
 
+
     override fun toString(): String {
-        return "$titolo"
+        return "$titolo-$latitudine-$longitudine"
     }
 }
 
 
 fun writeNewBook(book: Book) {
 
-    mDB = FirebaseDatabase.getInstance().getReference("Books")
+    thread {
+        Log.i(TAG, "Working with ${Thread.currentThread().name}")
+        mDB.push().setValue(book).addOnSuccessListener {
+            Log.i(TAG, "Libro $book inserito")
 
-    mDB.push().setValue(book).addOnSuccessListener {
-        Log.i("Firebase", "Libro $book inserito")
-
-    }
-        .addOnFailureListener {
-            Log.e("Firebase:", "Libro $book non inserito")
         }
-}
-
-fun readBooks() {
-
+            .addOnFailureListener {
+                Log.e(TAG, "Libro $book non inserito")
+            }
+    }
 }
