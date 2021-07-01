@@ -23,14 +23,14 @@ data class Book(
 
 fun writeNewBook(book: Book) {
 
-    thread {
-        Log.i(TAG, "Working with ${Thread.currentThread().name}")
-        mDB.push().setValue(book).addOnSuccessListener {
-            Log.i(TAG, "Libro $book inserito")
 
-        }
-            .addOnFailureListener {
-                Log.e(TAG, "Libro $book non inserito")
-            }
+    Log.i(TAG, "Working with ${Thread.currentThread().name}")
+    mDB.push().setValue(book).addOnSuccessListener {
+        Log.i(TAG, "Libro $book inserito")
+
     }
+        .addOnFailureListener {
+            Log.e(TAG, "Libro $book non inserito")
+        }
+
 }
