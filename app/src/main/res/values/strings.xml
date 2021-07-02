@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">UsedBooks</string>
+    <string name="inserire_il_titolo">Inserire il titolo.</string>
+    <string name="autore">Autore</string>
+    <string name="inserisci_il_nome_dell_autore">Inserisci nome autore.</string>
+    <string name="titolo">Titolo</string>
+    <string name="vendi">Vendi</string>
+    <string name="prezzo">Prezzo</string>
+    <string name="inserisci_il_prezzo">Inserisci il prezzo</string>
 </resources>

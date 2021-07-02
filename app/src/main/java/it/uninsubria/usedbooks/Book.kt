@@ -9,6 +9,7 @@ private var mDB: DatabaseReference = FirebaseDatabase.getInstance().getReference
 
 data class Book(
     val titolo: String? = null,
+    val autore: String? = null,
     val latitudine: Int? = null,
     val longitudine: Int? = null,
     val prezzo: Int? = null,
@@ -16,7 +17,7 @@ data class Book(
 
 
     override fun toString(): String {
-        return "$titolo-$latitudine-$longitudine"
+        return "$titolo"
     }
 }
 

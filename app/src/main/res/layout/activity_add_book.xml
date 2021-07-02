@@ -4,12 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".AddBook">
 
+
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/titolo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/titolo"
+        tools:text="Titolo"
+        style="@style/addBookStyle" />
+
+
+    <EditText
+        android:id="@+id/edit_titolo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="@string/inserire_il_titolo"
+        android:importantForAutofill="no"
+        android:layout_margin="10dp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/autore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/autore"
+        android:textAlignment="center"
+        tools:text="J. R. R. Tolkien"
+        style="@style/addBookStyle" />
+
+    <EditText
+        android:id="@+id/edit_autore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/inserisci_il_nome_dell_autore"
+        android:inputType="textPersonName"
+        android:importantForAutofill="no" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/prezzo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/prezzo"
+        style="@style/addBookStyle" />
+
+
+    <EditText
+        android:id="@+id/edit_prezzo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="@string/inserisci_il_prezzo"
+        android:importantForAutofill="no" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/sell_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="TextView" />
+        android:layout_gravity="end"
+        android:text="@string/vendi"
+        tools:text="@string/vendi"
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="25dp" />
+
 </LinearLayout>

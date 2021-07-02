@@ -1,5 +1,6 @@
 package it.uninsubria.usedbooks
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -21,19 +22,23 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        thread {
-            list_item.adapter = mAdapter
-            Log.i(TAG, "Working with ${Thread.currentThread().name}")
+
+        list_item.adapter = mAdapter
+
+
+        button.setOnClickListener {
+            val intent = Intent(this, AddBook::class.java)
+            startActivity(intent)
         }
 
 
-        thread {
-            writeNewBook(Book("Salmo e un sacco di altre persone che vagavano per i boschi",
-                111,
-                -100,
-                12))
-            Log.i(TAG, "Working with ${Thread.currentThread().name}")
-        }
+//    writeNewBook(Book("Salmo e un sacco di altre persone che vagavano per i boschi",
+//        "autore",
+//        111,
+//        -100,
+//        12))
+//    Log.i(TAG, "Working with ${Thread.currentThread().name}")
+
 
     }
 
