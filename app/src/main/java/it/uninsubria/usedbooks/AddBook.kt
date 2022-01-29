@@ -15,29 +15,29 @@ class AddBook : AppCompatActivity() {
         setContentView(R.layout.activity_add_book)
 
 
-        sell_button.setOnClickListener {
-
-
-            val titolo = edit_titolo.text.toString()
-            val autore = edit_autore.text.toString()
-            val prezzo = edit_prezzo.text.toString().toInt()
-
-            if (titolo.isNotEmpty() && autore.isNotEmpty()) {
-
-                val book = Book(titolo, autore, 1, 1, prezzo)
-
-                writeNewBook(book)
-            }
-            val book = Book(titolo, autore, 1, 1, prezzo)
-
-            writeNewBook(book)
-
-            Toast.makeText(this, "Il libro ${book.toString()} è stato aggiunto", Toast.LENGTH_SHORT)
-                .show()
-
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
+//        sell_button.setOnClickListener {
+//
+//
+//            val titolo = edit_titolo.text.toString()
+//            val autore = edit_autore.text.toString()
+//            val prezzo = edit_prezzo.text.toString().toInt()
+//
+//            if (titolo.isNotEmpty() && autore.isNotEmpty()) {
+//
+//                val book = Book(titolo, autore, 1, 1, prezzo)
+//
+//                writeNewBook(book)
+//            }
+//            val book = Book(titolo, autore, 1, 1, prezzo)
+//
+//            writeNewBook(book)
+//
+//            Toast.makeText(this, "Il libro ${book.toString()} è stato aggiunto", Toast.LENGTH_SHORT)
+//                .show()
+//
+//            val intent = Intent(this, MainActivity::class.java)
+//            startActivity(intent)
+//        }
 
 
     }

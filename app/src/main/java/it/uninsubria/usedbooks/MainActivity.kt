@@ -32,12 +32,16 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-//    writeNewBook(Book("Salmo e un sacco di altre persone che vagavano per i boschi",
-//        "autore",
-//        111,
-//        -100,
-//        12))
-//    Log.i(TAG, "Working with ${Thread.currentThread().name}")
+        writeNewBook(
+            Book(
+                "Salmo e un sacco di altre persone che vagavano per i boschi",
+                "autore",
+                111,
+                -100,
+                12
+            )
+        )
+        Log.i(TAG, "Working with ${Thread.currentThread().name}")
 
 
     }
