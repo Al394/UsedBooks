@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "960838651023",
+    "project_id": "usedbooks-3d71d",
+    "storage_bucket": "usedbooks-3d71d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:960838651023:android:7b424c985a52891e06b4fa",
+        "android_client_info": {
+          "package_name": "it.uninsubria.usedbooks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "960838651023-ojdgj2l4pdh7gb6q9f0m2jdda9btgius.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "it.uninsubria.usedbooks",
+            "certificate_hash": "cee7dd22ff90412a6a50ebf38d80741102f26d7d"
+          }
+        },
+        {
+          "client_id": "960838651023-t102nvjqac1vh0bootdq0d0utdmlgk1s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBj2z-cMumOwsnbUX3i49FPImJOdvLq17U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "960838651023-t102nvjqac1vh0bootdq0d0utdmlgk1s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
